@@ -1,7 +1,7 @@
 # ===============================
 # Konfiguracja słów kluczowych
 # ===============================
-$keywords = @("firefox", "thunderbird", "libreoffice", "7-zip", "chrome", "rustdesk", "anydesk", "wireguard")
+$keywords = @("firefox", "thunderbird", "libreoffice", "7-zip", "chrome", "rustdesk", "anydesk", "wireguard" )
 
 # ===============================
 # Funkcja: Zbieranie informacji
@@ -21,7 +21,6 @@ function Get-BasicInfo {
         }
     }
     $info["Rodzaj"] = if ($isLaptop) { "Laptop" } else { "Desktop" }
-    # ==============================================
 
     $bios = Get-WmiObject -Class Win32_BIOS
     $cs = Get-WmiObject -Class Win32_ComputerSystem
