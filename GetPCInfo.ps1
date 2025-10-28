@@ -10,7 +10,7 @@ function Get-BasicInfo {
     $info = [ordered]@{}
 
     $hostname = $env:COMPUTERNAME
-    $info["Urządzenie"] = $hostname
+    $info["Urzadzenie"] = $hostname
 
     # ===== Rodzaj (Laptop / Desktop) =====
     $chassisTypes = (Get-CimInstance -ClassName Win32_SystemEnclosure -ErrorAction SilentlyContinue).ChassisTypes
@@ -125,7 +125,7 @@ function Print-BasicInfo($info, $keywords) {
         Write-Host "$p"
     }
 
-    Write-Host " ; ; `n ; ; `nUżytkownicy;Hasło;PIN"
+    Write-Host " ; ; `n ; ; `nUzytkownicy;Haslo;PIN"
     $users = Get-FilteredUsers
     foreach ($u in $users) {
         Write-Host "$($u.Name); ; "
@@ -164,7 +164,7 @@ function Save-BasicInfo($info, $keywords) {
         $lines += "$p"
     }
 
-    $lines += " ; ; ", " ; ; ", "Użytkownicy;Hasło;PIN"
+    $lines += " ; ; ", " ; ; ", "Uzytkownicy;Haslo;PIN"
 
     $users = Get-FilteredUsers
     foreach ($u in $users) {
