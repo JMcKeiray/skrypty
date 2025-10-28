@@ -165,7 +165,7 @@ function Save-BasicInfo($info, $keywords) {
         $lines += "$p"
     }
 
-    $lines += " ; ; ", "Użytkownicy;Hasło;PIN"
+    $lines += " ; ; ", " ; ; ", "Użytkownicy;Hasło;PIN"
 
     $users = Get-FilteredUsers
     foreach ($u in $users) {
