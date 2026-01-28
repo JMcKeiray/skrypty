@@ -38,17 +38,20 @@ Step "01_users" {
     }
 
     if (-not (Get-LocalUser serwis -ErrorAction SilentlyContinue)) {
-        net user serwis "sp6#jkSD&^23" /add
-        net localgroup administrators serwis /add
+        $pwdSerwis = ConvertTo-SecureString 'sp6#jkSD&^23' -AsPlainText -Force
+        New-LocalUser -Name "serwis" -FullName "SerwisIT" -Password $pwdSerwis -PasswordNeverExpires
+        Add-LocalGroupMember -Group "Administrators" -Member "serwis"
     }
 
     if (-not (Get-LocalUser uczen -ErrorAction SilentlyContinue)) {
-        net user uczen "sp6#kjDS@#78" /add
+        $pwdUczen = ConvertTo-SecureString 'sp6#kjDS@#78' -AsPlainText -Force
+        New-LocalUser -Name "uczen" -FullName "Uczeń" -Password $pwdUczen -PasswordNeverExpires
     }
 
     if (-not (Get-LocalUser nauczyciel -ErrorAction SilentlyContinue)) {
-        net user nauczyciel "sp6laziska" /add
-        net localgroup administrators nauczyciel /add
+        $pwdNauczyciel = ConvertTo-SecureString 'sp6laziska' -AsPlainText -Force
+        New-LocalUser -Name "nauczyciel" -FullName "Nauczyciel" -Password $pwdNauczyciel -PasswordNeverExpires
+        Add-LocalGroupMember -Group "Administrators" -Member "nauczyciel"
     }
 }
 
