@@ -45,7 +45,7 @@ Step "01_users" {
 
     if (-not (Get-LocalUser uczen -ErrorAction SilentlyContinue)) {
         $pwdUczen = ConvertTo-SecureString 'sp6#kjDS@#78' -AsPlainText -Force
-        New-LocalUser -Name "uczen" -FullName "Uczeń" -Password $pwdUczen -PasswordNeverExpires
+        New-LocalUser -Name "uczen" -FullName "Uczen" -Password $pwdUczen -PasswordNeverExpires
     }
 
     if (-not (Get-LocalUser nauczyciel -ErrorAction SilentlyContinue)) {
