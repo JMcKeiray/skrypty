@@ -57,8 +57,8 @@ Step "01_users" {
 
 # ---------------- ETAP 2 ----------------
 Step "02_software" {
-    winget install TheDocumentFoundation.LibreOffice --silent
-    winget install Mozilla.Firefox.pl --silent
+    winget install TheDocumentFoundation.LibreOffice --silent --accept-package-agreements --accept-source-agreements
+    winget install Mozilla.Firefox.pl --silent --accept-package-agreements --accept-source-agreements
 }
 # Etap 98
 Step "98_beep" {
