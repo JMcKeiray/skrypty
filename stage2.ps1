@@ -1,0 +1,82 @@
+$Base  = "C:\Windows\Temp\provision"
+$Flags = "$Base\flags"
+$Log   = "$Base\provision.log"
+
+New-Item -ItemType Directory -Path $Flags -Force | Out-Null
+Start-Transcript $Log
+
+function Step {
+    param(
+        [string]$Name,
+        [scriptblock]$Action
+    )
+
+    $flag = "$Flags\$Name.done"
+
+    if (Test-Path $flag) {
+        Write-Host "SKIP: $Name"
+        return
+    }
+
+    Write-Host "RUN: $Name"
+    & $Action
+
+    New-Item -ItemType File -Path $flag -Force | Out-Null
+}
+
+# ---------------- ETAP 1 ----------------
+Step "01_users" {
+
+    $protected = @(
+        "Administrator","Guest","DefaultAccount","WDAGUtilityAccount"
+    )
+
+    Get-LocalUser | Where-Object {
+        $protected -notcontains $_.Name
+    } | ForEach-Object {
+        try { Remove-LocalUser $_.Name -ErrorAction Stop } catch {}
+    }
+
+    if (-not (Get-LocalUser serwis -ErrorAction SilentlyContinue)) {
+        net user serwis "sp6#jkSD&^23" /add
+        net localgroup administrators serwis /add
+    }
+
+    if (-not (Get-LocalUser uczen -ErrorAction SilentlyContinue)) {
+        net user uczen "sp6#kjDS@#78" /add
+    }
+
+    if (-not (Get-LocalUser nauczyciel -ErrorAction SilentlyContinue)) {
+        net user nauczyciel "sp6laziska" /add
+        net localgroup administrators nauczyciel /add
+    }
+}
+
+# ---------------- ETAP 2 ----------------
+Step "02_software" {
+
+    if (-not (Test-Path "C:\Program Files\Mozilla Firefox\firefox.exe")) {
+        $ff = "$Base\firefox.exe"
+        Invoke-WebRequest `
+          "https://download.mozilla.org/?product=firefox-latest&os=win64&lang=pl" `
+          -OutFile $ff
+        Start-Process $ff -ArgumentList "/S" -Wait
+    }
+
+    if (-not (Test-Path "C:\Program Files\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe")) {
+        $ar = "$Base\acrobat.exe"
+        Invoke-WebRequest `
+          "https://ardownload2.adobe.com/pub/adobe/reader/win/AcrobatDC/2300820560/AcroRdrDCx64_pl_PL.exe" `
+          -OutFile $ar
+        Start-Process $ar `
+          -ArgumentList "/sAll /rs /rps /msi EULA_ACCEPT=YES" `
+          -Wait
+    }
+}
+
+# ---------------- ETAP 99 ----------------
+Step "99_cleanup" {
+    schtasks /delete /tn "ProvisionUsersAtBoot" /f
+}
+
+Stop-Transcript
