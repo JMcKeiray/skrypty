@@ -57,24 +57,8 @@ Step "01_users" {
 
 # ---------------- ETAP 2 ----------------
 Step "02_software" {
-
-    if (-not (Test-Path "C:\Program Files\Mozilla Firefox\firefox.exe")) {
-        $ff = "$Base\firefox.exe"
-        Invoke-WebRequest `
-          "https://download.mozilla.org/?product=firefox-latest&os=win64&lang=pl" `
-          -OutFile $ff
-        Start-Process $ff -ArgumentList "/S" -Wait
-    }
-
-    if (-not (Test-Path "C:\Program Files\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe")) {
-        $ar = "$Base\acrobat.exe"
-        Invoke-WebRequest `
-          "https://ardownload2.adobe.com/pub/adobe/reader/win/AcrobatDC/2300820560/AcroRdrDCx64_pl_PL.exe" `
-          -OutFile $ar
-        Start-Process $ar `
-          -ArgumentList "/sAll /rs /rps /msi EULA_ACCEPT=YES" `
-          -Wait
-    }
+    winget install TheDocumentFoundation.LibreOffice --silent
+    winget install Mozilla.Firefox.pl --silent
 }
 # Etap 98
 Step "98_beep" {
