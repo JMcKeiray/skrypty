@@ -73,10 +73,20 @@ Step "02_software" {
           -Wait
     }
 }
+# Etap 98
+Step "98_beep" {
+    [console]::beep(900, 200)
+    Start-Sleep -Milliseconds 100
+    [console]::beep(1200, 200)
+    Start-Sleep -Milliseconds 100
+    [console]::beep(1500, 400)
+}
+
 
 # ---------------- ETAP 99 ----------------
 Step "99_cleanup" {
     schtasks /delete /tn "ProvisionUsersAtBoot" /f
+    Restart-Computer -Force
 }
 
 Stop-Transcript
