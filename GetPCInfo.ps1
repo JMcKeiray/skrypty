@@ -38,7 +38,7 @@ Out-File $OutFile
 Write-Host " - o sprzecie..."
 $infoTable = [ordered]@{}
 $infoTable["Nazwa Komputera"] = (Get-SystemObject CIM_ComputerSystem).Name
-$infoTable["Lokalizacja"] = "Magazyn"
+$infoTable["Lokalizacja"] = ""
 $infoTable["Typ"] = if ((Get-SystemObject Win32_SystemEnclosure).ChassisTypes -match '8|9|10|14|30') { "Przenosny" } else { "Stacjonarny" }
 $infoTable["Producent"] = (Get-SystemObject CIM_ComputerSystem).Manufacturer
 $infoTable["Model"] = (Get-SystemObject CIM_ComputerSystem).Model
