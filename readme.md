@@ -1,6 +1,6 @@
 Możesz użyć poniższej komendy, aby wykonać skrypt bezpośrednio z GitHuba:
 
-irm "https://raw.githubusercontent.com/JMcKeiray/skrypty/refs/heads/main/GetPCInfo.ps1" | iex
+`irm "https://s.yglnk.ovh/GetPCInfo" | iex`
 
 powershell -ExecutionPolicy Bypass -Command ^
  "iex ((New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/JMcKeiray/skrypty/refs/heads/main/bootstrap.ps1'))"
