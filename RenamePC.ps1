@@ -1,3 +1,6 @@
-Write-Host "Dokoncz nazwe komputera SP6-48705780-??: "
-$inputNumber = Read-Host "Wpisz: "
-Rename-Computer -NewName "SP6-487-5780-$inputNumber" -Force -Restart
+param(
+    [Parameter(Mandatory=$true)]
+    [string]$Number
+)
+Write-Host "Zmieniam nazwe omputera na SP6-48705780-$Number: "
+Rename-Computer -NewName "SP6-487-5780-$Number" -Force -Restart
