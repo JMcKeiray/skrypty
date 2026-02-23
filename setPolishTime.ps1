@@ -23,4 +23,7 @@ powercfg /change monitor-timeout-dc 45
 Write-host "Wyłączenie szybkiego uruchamiania"
 powercfg /hibernate off
 
+Write-Host "TYMCZASOWO: winget instalacja adobe reader"
+winget install --source winget adobe.acrobat.reader.64-bit
+
 Write-host "Zakonczono."
