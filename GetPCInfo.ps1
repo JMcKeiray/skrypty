@@ -7,7 +7,7 @@ Write-Host
 
 # Zmienne
 $separator = ";"
-$apps = @("firefox","chrome","libre","thunderbird","Office","ose","adobe","dell","rustdesk","anydesk","synology")
+$apps = @("firefox","chrome","libre","thunderbird","Office","ose","Adobe Acrobat","Dell SupportAssist","rustdesk","anydesk","synology")
 
 # Wrapper funkcji dla kompatybilnosci ze starszymi wersjami powershelld
 function Get-SystemObject {
