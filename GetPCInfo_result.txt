@@ -1,29 +1,33 @@
-Urządzenie;hostame
-Rodzaj;Desktop
-Producent;ASUS
-Model;123ABC
-ServiceTag/SN;1a2b3c4d5e
-Procesor;12th Gen Intel(R) Core(TM) i7-12700K
-RAM;64 GB
-Dyski;IRP-SSDPR-S25C-256 (238GB)
- ;Samsung SSD 980 PRO 500GB (466GB)
- ;Samsung SSD 990 PRO 1TB (932GB)
- ;SSDPR-CL100-240-G3 (224GB)
- ;ST6000VN001-2BB186 (5589GB)
- ;WDC WD10EZEX-00KUWA0 (932GB)
-System;Microsoft Windows 11 Pro 64-bitowy
-Domena/Grupa;WORKGROUP
-Adres IP;192.168.0.1 (Statyczny)
+Nazwa Komputera;PC-001; 
+Lokalizacja;Pokoj 1; 
+Typ;Stacjonarny; 
+Producent;Dell Inc.; 
+Model;OptiPlex 7040; 
+Serial / ServiceTag;123456789; 
+Procesor;Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz; 
+Karta Graficzna;Intel(R) HD Graphics 530; 
+RAM;16 GB; 
+System;Microsoft Windows 10 Pro 64-bitowy; 
+Grupa / Domena;WORKGROUP; 
+Adres IP;192.168.0.100 (DHCP); 
+Dysk0;SK hynix SC300 2.5 7MM 256GB (238GB); 
+Monitor;DELL P2210; 
+Klawiatura;; 
+Mysz;; 
  ; ; 
+Oprogramowanie; ; 
+Adobe Acrobat (64-bit);;
+Dell SupportAssist;;
+Google Chrome;;
+Mozilla Firefox (x64 pl);;
+OpenOffice 4.1.1;;
  ; ; 
-Oprogramowanie
-LibreOffice 25.8.1.1
-Mozilla Firefox (x64 pl)
-Mozilla Thunderbird (x64 pl)
-RustDesk
+Drukarki; ; 
+ZebraZD421-1L;LAN_254.201;ZDesigner ZD421-203dpi ZPL
+BrotherT525W;192.168.254.196;Brother DCP-T525W Printer
  ; ; 
+Lokalizacje Sieciowe; ; 
  ; ; 
-Użytkownicy;Hasło;PIN
-User1; ; 
-alibaba; ; 
-twojStary; ; 
+Uzytkownicy Lokalni; ; 
+Uzytkownik;Haslo;PIN
+Dell;;
