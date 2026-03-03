@@ -13,3 +13,5 @@ powercfg /change monitor-timeout-dc 45
 
 Write-Host " - Wyłączenie szybkiego uruchamiania"
 powercfg /hibernate off
+
+Write-Host "Zakonczono SetSleepTime."
