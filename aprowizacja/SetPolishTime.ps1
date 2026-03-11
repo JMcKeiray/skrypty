@@ -9,6 +9,7 @@ Start-Service tzautoupdate
 Write-Host " - Sprawdzenie statusu"
 sc.exe query tzautoupdate
 
+# TODO: Synchronizacja z własnego serwera czasu lub polskiego gum.gov.pl
 Write-Host " - Wymuszenie synchronizacji czasu"
 net stop w32time
 net start w32time
